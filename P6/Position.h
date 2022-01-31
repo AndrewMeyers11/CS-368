@@ -1,0 +1,80 @@
+//Name:         Andrew Meyers
+//WiscID:       ajmeyers4
+//Class:        CS 368
+//Assignment:   6
+
+#include <iostream>
+
+#ifndef POSITION_H
+#define POSITION_H
+
+/**
+ * This class represents the position of a user
+ */
+class Position {
+
+private:
+	float x;
+	float y;
+
+public:
+	/**
+	* Constructs a new position using the passed coordinates
+	*  or defaults to the position (0, 0)
+	*
+	* @param init_x - the x position of the Position to be constructed
+	* @param init_y - the y position of the Position to be constructed
+	*/
+	Position(float init_x = 0.0, float init_y = 0.0);
+
+	/**
+	* Overload of the - operator used to get the distance
+	*  between two Positions
+	*
+	* @param other - The other Position used to cacluate the distance
+	* @returns a float representing the Euclidean distance between the two Positions
+	*/
+	float operator-(const Position other);
+
+	/**
+	* Overload of the + operator used to get a Position representing the sum of two Positions
+	* 
+	* @param that - the Position to be added with this Position instance
+	* @returns a Position object with the coordinates of the calculated sum 
+	*/
+	Position operator+(Position that);
+
+	/**
+	* Overload of the / operator used to get a Position representing this Position
+	*  divided by the passed denominator
+	* 
+	* @param denominator - the float to divide the coordinates by
+	* @returns a Position ovject with its coordinates being the quotient of
+	*  the previous coordinates and the passed denominator
+	*/
+	Position operator/(float denominator);
+
+	/**
+	* Reads in position data from the passed stream
+	*
+	* @param s - the input stream to read data from
+	*/
+	void Read(std::istream& s);
+
+	/**
+	* Getter function for the x coordinate
+	* 
+	* @returns the x coordinate of this Position instance
+	*  as a const float
+	*/
+	float GetX() const;
+
+	/**
+	* Getter function for the y coordinate
+	*
+	* @returns the y coordinate of this Position instance
+	*  as a const float
+	*/
+	float GetY() const;
+};
+#endif
